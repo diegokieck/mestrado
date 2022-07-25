@@ -5,7 +5,10 @@ repositório para compartilhamento de código utilizado no mestrado
 
 Foram realizados diferentes experimentos baseados nos seguintes algoritmos:
   <li>TFIDF SVM: </li>
+    *nfe
+    *nfce
   <li>Word CNN</li>
+    
   <li>Word CNN </li>
   <li>BERT[TODO]</li>
   

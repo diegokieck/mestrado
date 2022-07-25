@@ -29,7 +29,7 @@ def load_trial(path):
     trials=pickle.load(f)
   return trials
 
-  def compute_results(y_true, y_pred ):
+def compute_results(y_true, y_pred ):
   accuracy = accuracy_score(y_true, y_pred)
   f1_macro = f1_score(y_true, y_pred, average='macro')
   recall_macro = recall_score(y_true, y_pred, average='macro')
@@ -38,3 +38,12 @@ def load_trial(path):
           'f1_macro': f1_macro,
           'recall_macro': recall_macro,
           'precision_macro': precision_macro}
+
+  
+
+
+
+
+
+
+
