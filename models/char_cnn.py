@@ -32,6 +32,18 @@ char_cnn_space = {
     'optimizer': hp.choice('optimizer',['Adam', 'Adagrad', 'Adadelta', 'Nadam'])
 }
 
+char_cnn_space = {
+    'conv_1_filter_number' : hp.choice('conv_1_filter_number', [300, 600, 900, 1800]),
+    'conv_2_filter_number' : hp.choice('conv_2_filter_number', [300, 600, 900, 1800]),
+    'conv_3_filter_number' : hp.choice('conv_3_filter_number', [300, 600, 900, 1800]),
+    'dense_size' : hp.choice('dense_size', [100, 300, 600, 1000]),
+    'extra_dense' : hp.choice('extra_dense', [True, False]),
+    'extra_dense_size' : hp.choice('extra_dense_size', [100, 300, 600]),
+    'dropout_rate' : hp.uniform('dropout_rate', 0.0, 0.5),
+    'optimizer': hp.choice('optimizer',['Adam', 'Adagrad', 'Adadelta', 'Nadam'])
+}
+
+
 
 
 def data_prep(train_texts, test_texts, input_size = 240, embedding_size= 60 ):
