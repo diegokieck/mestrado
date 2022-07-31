@@ -1,6 +1,7 @@
 import pickle
 import pandas as pd 
 from sklearn.metrics import accuracy_score, f1_score, recall_score, precision_score
+
 def plot_trial_results(trials):
   exp_list =[]
   for trial in trials.trials:
@@ -39,7 +40,7 @@ def compute_results(y_true, y_pred ):
           'recall_macro': recall_macro,
           'precision_macro': precision_macro}
 
-  import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 
 #função para visualizar o historico de treinamento da rede
