@@ -65,6 +65,10 @@ def plot_history(history):
 
 
 
+def save_figs(path,learner,name):
+  fig_path =  path + str(name)
+  learner.plot(plot_type = 'loss', return_fig = True).savefig(fig_path+'/' + 'loss')
+  learner.plot(plot_type = 'accuracy', return_fig = True).savefig(fig_path+'/' + 'acc')
 
 
 
