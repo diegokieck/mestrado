@@ -1,6 +1,10 @@
 import pickle
 import pandas as pd 
+
 from sklearn.metrics import accuracy_score, f1_score, recall_score, precision_score
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.pipeline import Pipeline
 
 def plot_trial_results(trials):
   exp_list =[]
@@ -70,6 +74,18 @@ def save_figs(path,learner,name):
   learner.plot(plot_type = 'loss', return_fig = True).savefig(fig_path+'/' + 'loss')
   learner.plot(plot_type = 'accuracy', return_fig = True).savefig(fig_path+'/' + 'acc')
 
+def get_gini_importance(x_train, y_train):
+  model = DecisionTreeClassifier()
+  vectorizer = TfidfVectorizer(ngram_range=(1,3))
+  pipe = Pipeline([('vectorizer', vectorizer ), ('tree', model)])
+  pipe.fit(sentences_train_nfe, y_train_nfe)
+  importance = pipe['tree'].feature_importances_
+  features = pipe['vectorizer'].get_feature_names()
+  features_importance_df = pd.DataFrame([features,importance])
+  features_importance = features_importance_df.T .sort_values(1)
+  features_importance.columns = ['feature', 'gini']
+  features_importance.sort_values('gini', ascending=False)
+  return features_importance
 
 
 
